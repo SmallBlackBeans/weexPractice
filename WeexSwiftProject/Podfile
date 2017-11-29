@@ -1,0 +1,35 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '9.0'
+
+target 'WeexSwiftProject' do
+use_frameworks!
+
+
+pod 'RxSwift',    '~> 4.0'
+pod 'RxCocoa',    '~> 4.0'
+pod 'RxDataSources', '~> 3.0'
+
+
+pod 'Alamofire', '~> 4.5'
+pod 'SwiftyJSON'
+
+pod 'WeexSDK'   ## 建议使用WeexSDK新版本 
+
+
+target 'WeexSwiftProjectTests' do
+    #inherit! :search_paths
+pod 'RxBlocking', '~> 4.0'
+pod 'RxTest',     '~> 4.0'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |configuration|
+            configuration.build_settings['SWIFT_VERSION'] = "4.0"
+        end
+    end
+end
+
+
+end
+

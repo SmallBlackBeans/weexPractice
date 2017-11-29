@@ -1,0 +1,6 @@
+framework module Pods_WeexSwiftProject {
+  umbrella header "Pods-WeexSwiftProject-umbrella.h"
+
+  export *
+  module * { export * }
+}

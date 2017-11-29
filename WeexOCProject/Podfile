@@ -1,0 +1,18 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '9.0'
+
+target 'WeexOCProject' do
+#use_frameworks!
+
+
+
+pod 'WeexSDK'   ## 建议使用WeexSDK新版本 
+pod 'SDWebImage'
+
+target 'WeexOCProjectTests' do
+    #inherit! :search_paths
+end
+
+
+end
+
