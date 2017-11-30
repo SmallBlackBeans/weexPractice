@@ -1,61 +1,93 @@
 <template>
-    <div>
-        <slider class="slider" interval="1000"  :auto-play="true">
-            <!--<image src="https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg"class="image"></image>-->
-            <!--<image src="https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg" class="image"></image>-->
-            <!--<image src="https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg" class="image"></image>-->
-            <!--<image :src="src1" class="image"></image>-->
-            <image :src="src" v-for='(src,index) in images' class="image" @click='click(index)' @change="change"></image>
-            <indicator class="indicator"></indicator>
-        </slider>
-    </div>
+
+    <list @loadmore='loadmore' loadmoreoffset='10'>
+        <cell class='cell' v-for='num in lists' keep-scroll-position='true'>
+            <div class='cellContent'>
+                <image class='cell-image'></image>
+                <text class='cell-text'>韩小醋{{num}}号</text>
+            </div>
+        </cell>
+        <loading class='loading' @loading='onloading' :display='showLoading'>
+            <text class='indicator'>Loading...</text>
+        </loading>
+    </list>
 </template>
 
 
+
 <script>
-    var modal = weex.requireModule('modal')
-    export default {
+    const modal = weex.requireModule('modal')
+    const  LOADMORE_COUNT = 10
+
+    export default  {
         data() {
             return {
-                src1:"https://gd3.alicdn.com/bao/uploaded/i3/TB1x6hYLXXXXXazXVXXXXXXXXXX_!!0-item_pic.jpg",
-                images:['https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                    'https://gd1.alicdn.com/bao/uploaded/i1/TB1PXJCJFXXXXciXFXXXXXXXXXX_!!0-item_pic.jpg',
-                    'https://gd2.alicdn.com/bao/uploaded/i2/T14H1LFwBcXXXXXXXX_!!0-item_pic.jpg',
-                    "http://pic19.photophoto.cn/20110417/0019032477335591_b.jpg"
-                ],
+                showLoading:'hide',
+                lists:[1, 2, 3, 4, 5]
             }
         },
-    methods: {
-            click(index) {
-                console.log(index)
+        methods: {
+            onloading(event) {
+                modal.toast({message:'loading',duration:1})
+                this.showLoading = 'show'
+                setTimeout(()=>{
+                    const length = this.lists.length
+                    for (let i = length; i < length + LOADMORE_COUNT; i++) {
+                        this.lists.push(i + 1)
+                    }
+                    this.showLoading = 'hide'
+                },1500)
             },
-        change(evnet) {
-         modal.toast({message:event.index,duration:1})
+//            loadmore(evnet) {
+//                modal.toast({ message: 'loadMore', duration:1 })
+//                setTimeout( () => {
+//                    const  length = this.lists.length
+//                    for (let i = length; i < length + LOADMORE_COUNT; ++i) {
+//                        this.lists.push(i + 1)
+//                    }
+//                },800)
+//            },
+            scroll(event) {
+                //event.contentSize
+                //event.contentOffset
+
+            },
+
         }
-    }
     }
 </script>
 
 <style>
-    .slider {
-        width: 750px;
-        height: 300px;
-        background-color: green;
+    .cellContent {
+        width: 600px;
+        height: 250px;
+        margin-left: 75px;
+        margin-top: 35px;
+        margin-bottom: 35px;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        border-width: 2px;
+        border-radius: 5px;
+        border-style: solid;
+        border-color: burlywood;
+        background-color: indianred;
     }
-    .image {
-        width: 750px;
-        height: 300px;
+
+    .cell-text {
+        color: white;
+        text-align: center;
+        margin-left: 60px;
     }
-    .indicator {
-        position: absolute;
-        left: 20px;
-        bottom: 40px;
-        width: 200px;
-        height: 33px;
-        item-color:red;
-        item-selected-color:green;
-        item-size:20px
+    .cell-image {
+        margin-top: 5px;
+        margin-left: 30px;
+        width: 160px;
+        height: 160px;
+        background-color: burlywood;
+        border-radius: 80px
     }
+
 
 </style>
 

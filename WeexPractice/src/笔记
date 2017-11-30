@@ -1,0 +1,16 @@
+
+
+border 目前不支持类似这样 border: 1 solid #ff0000; 的组合写法
+
+
+
+justify-content：
+定义了 flex 容器中 flex 成员项在主轴方向上如何排列以处理空白部分
+
+
+
+align-items 默认拉伸
+定义了 flex 容器中 flex 成员项在纵轴方向上如何排列以处理空白部分
+
+flex
+属性定义了 flex 成员项可以占用容器中剩余空间的大小
