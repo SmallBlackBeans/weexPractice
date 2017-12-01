@@ -51,8 +51,8 @@
 
 // MARK: - 注册handler
 - (void)registerHandler {
-    WXImgLoaderDefaultImpl * imp = [[WXImgLoaderDefaultImpl alloc] init];
-    [WXSDKEngine registerHandler:imp withProtocol:@protocol(WXImgLoaderProtocol)];
+    //注册图片下载操作
+    [WXSDKEngine registerHandler:[WXImgLoaderDefaultImpl new] withProtocol:@protocol(WXImgLoaderProtocol)];
 }
 
 
