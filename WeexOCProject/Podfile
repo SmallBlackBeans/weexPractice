@@ -6,7 +6,8 @@ target 'WeexOCProject' do
 
 
 
-pod 'WeexSDK'   ## 建议使用WeexSDK新版本 
+pod 'WeexSDK'   ## 建议使用WeexSDK新版本
+pod  'WXDevtool',  :configurations => ['Debug']
 pod 'SDWebImage'
 
 target 'WeexOCProjectTests' do

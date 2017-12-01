@@ -25,6 +25,11 @@ THE SOFTWARE.
 
 
 
+## WXDevtool
+
+Alibaba-INC copyright
+
+
 ## WeexSDK
 
 Alibaba-INC copyright

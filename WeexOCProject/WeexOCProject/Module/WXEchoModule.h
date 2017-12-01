@@ -8,6 +8,6 @@
 
 #import <WeexSDK/WeexSDK.h>
 
-@interface WXEchoModule : WXComponent
+@interface WXEchoModule : NSObject <WXModuleProtocol>
 
 @end

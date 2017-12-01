@@ -1,93 +1,100 @@
 <template>
 
-    <list @loadmore='loadmore' loadmoreoffset='10'>
-        <cell class='cell' v-for='num in lists' keep-scroll-position='true'>
-            <div class='cellContent'>
-                <image class='cell-image'></image>
-                <text class='cell-text'>韩小醋{{num}}号</text>
+    <div class="list">
+        <div class="group center">
+            <div class="panel">
+                <text class="text">{{ result }}</text>
             </div>
-        </cell>
-        <loading class='loading' @loading='onloading' :display='showLoading'>
-            <text class='indicator'>Loading...</text>
-        </loading>
-    </list>
+        </div>
+        <div class="group">
+            <div class="panel">
+                <text class="button" @click="setValueForKey">set</text>
+            </div>
+            <div class="panel">
+                <text class="button" @click="getByKey">get</text>
+            </div>
+            <div class="panel">
+                <text class="button" @click="deleteValue">remove</text>
+            </div>
+            <div class="panel">
+                <text class="button" @click="getLength">length</text>
+            </div>
+        </div>
+
+    </div>
+
 </template>
 
 
-
 <script>
-    const modal = weex.requireModule('modal')
-    const  LOADMORE_COUNT = 10
-
-    export default  {
+    var storage = weex.requireModule('storage');
+    var modal = weex.requireModule('modal');
+    export default {
         data() {
             return {
-                showLoading:'hide',
-                lists:[1, 2, 3, 4, 5]
+                result: '---'
             }
         },
         methods: {
-            onloading(event) {
-                modal.toast({message:'loading',duration:1})
-                this.showLoading = 'show'
-                setTimeout(()=>{
-                    const length = this.lists.length
-                    for (let i = length; i < length + LOADMORE_COUNT; i++) {
-                        this.lists.push(i + 1)
-                    }
-                    this.showLoading = 'hide'
-                },1500)
+            setValueForKey() {
+                storage.setItem('key', 'hanxiaocu', function (e) {
+                    if (e.result === 'success')
+                        this.result = e.data
+                    else
+                        modal.toast({message: 'faild'})
+                })
             },
-//            loadmore(evnet) {
-//                modal.toast({ message: 'loadMore', duration:1 })
-//                setTimeout( () => {
-//                    const  length = this.lists.length
-//                    for (let i = length; i < length + LOADMORE_COUNT; ++i) {
-//                        this.lists.push(i + 1)
-//                    }
-//                },800)
-//            },
-            scroll(event) {
-                //event.contentSize
-                //event.contentOffset
+            getByKey() {
 
             },
+            deleteValue() {
+
+            },
+            getLength() {
+
+            }
 
         }
     }
 </script>
 
 <style>
-    .cellContent {
-        width: 600px;
-        height: 250px;
-        margin-left: 75px;
-        margin-top: 35px;
-        margin-bottom: 35px;
-        flex-direction: row;
-        justify-content: flex-start;
+
+    .list {
+        flex-direction: column;
         align-items: center;
-        border-width: 2px;
-        border-radius: 5px;
-        border-style: solid;
-        border-color: burlywood;
-        background-color: indianred;
     }
 
-    .cell-text {
-        color: white;
+    .group {
+        flex-direction: row;
+        justify-content: space-between;
+
+        width: 650px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 50px;
+    }
+
+
+    .center {
+        justify-content: center;
+    }
+
+    .text {
+        font-size: 50px;
         text-align: center;
-        margin-left: 60px;
-    }
-    .cell-image {
-        margin-top: 5px;
-        margin-left: 30px;
-        width: 160px;
-        height: 160px;
-        background-color: burlywood;
-        border-radius: 80px
+        padding-left: 25px;
+        padding-right: 25px;
+        color: #41b883;
     }
 
-
+  .panel {
+      height: 100px;
+      flex-direction: column;
+      justify-content: center;
+      border-width: 2px;
+      border-color: burlywood;
+      border-radius: 5px;
+      border-style: solid;
+  }
 </style>
-

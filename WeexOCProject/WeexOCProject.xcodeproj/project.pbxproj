@@ -17,6 +17,7 @@
 		1E3602EF1FCE7F08005FAC87 /* WXButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3602EE1FCE7F08005FAC87 /* WXButton.m */; };
 		1E6F76CC1FCFCF96000774FA /* WXImgLoaderDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F76CA1FCFCF96000774FA /* WXImgLoaderDefaultImpl.m */; };
 		1E6F76CF1FCFD03C000774FA /* WXEchoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6F76CE1FCFD03C000774FA /* WXEchoModule.m */; };
+		1ECCD3E21FD14BA900584CCF /* WXImageComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCD3E11FD14BA900584CCF /* WXImageComponent.m */; };
 		CA8DA9A37AC959C4C22DE774 /* libPods-WeexOCProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA4AE13680B9A0E160A9875 /* libPods-WeexOCProject.a */; };
 		FC4891E8CDC65C2832D8299D /* libPods-WeexOCProject-WeexOCProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F0281D47CCC8FC93FA1599 /* libPods-WeexOCProject-WeexOCProjectTests.a */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,8 @@
 		1E6F76CB1FCFCF96000774FA /* WXImgLoaderDefaultImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXImgLoaderDefaultImpl.h; sourceTree = "<group>"; };
 		1E6F76CD1FCFD03C000774FA /* WXEchoModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXEchoModule.h; sourceTree = "<group>"; };
 		1E6F76CE1FCFD03C000774FA /* WXEchoModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXEchoModule.m; sourceTree = "<group>"; };
+		1ECCD3E01FD14BA900584CCF /* WXImageComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXImageComponent.h; sourceTree = "<group>"; };
+		1ECCD3E11FD14BA900584CCF /* WXImageComponent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXImageComponent.m; sourceTree = "<group>"; };
 		6438B675E76497C8FB35FA5F /* Pods-WeexOCProject-WeexOCProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeexOCProject-WeexOCProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeexOCProject-WeexOCProjectTests/Pods-WeexOCProject-WeexOCProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		89249C7A4B560AFDC7FDBC85 /* Pods-WeexOCProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeexOCProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeexOCProject/Pods-WeexOCProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A8957CA8A3B18DEBA42D6389 /* Pods-WeexOCProject-WeexOCProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeexOCProject-WeexOCProjectTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeexOCProject-WeexOCProjectTests/Pods-WeexOCProject-WeexOCProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 			children = (
 				1E3602ED1FCE7F08005FAC87 /* WXButton.h */,
 				1E3602EE1FCE7F08005FAC87 /* WXButton.m */,
+				1ECCD3E01FD14BA900584CCF /* WXImageComponent.h */,
+				1ECCD3E11FD14BA900584CCF /* WXImageComponent.m */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -390,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E3602EF1FCE7F08005FAC87 /* WXButton.m in Sources */,
+				1ECCD3E21FD14BA900584CCF /* WXImageComponent.m in Sources */,
 				1E6F76CF1FCFD03C000774FA /* WXEchoModule.m in Sources */,
 				1E3602CD1FCE7A75005FAC87 /* ViewController.m in Sources */,
 				1E3602D81FCE7A75005FAC87 /* main.m in Sources */,
